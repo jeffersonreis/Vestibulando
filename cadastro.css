@@ -1,0 +1,111 @@
+menu{
+    margin: 0;
+    padding: 0;
+}
+#nav {
+    list-style-type: none;
+
+}
+#main-nav{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 47px;
+    background-color: #ebe7ea;
+    border-bottom: 1px solid #b2a8af;
+}
+#nav{
+    margin: 0 auto;
+    padding: 0;
+}
+
+#logo {
+    float: left;
+    width: 10%;
+    margin-top: -2.4%;
+    position: relative;
+}
+
+body {
+    margin: 0 auto;
+    margin-bottom: 10%;
+}
+
+a.log {color: #5c1e47;} 
+
+a.log:hover{
+    cursor: pointer;
+    background-color: #CDC9C9; 
+    margin-right: 5%;
+}
+
+a.log:link 
+{ 
+    text-decoration: none;
+    float: right;
+    width: 10%;
+    position: relative;
+    padding: 13px 18px;
+}
+
+h2 {
+    color: white;
+    float: none;
+    position: relative;
+    margin-left: 20%;
+    margin-top: 4%;
+    font-family: Aharoni, cursive;
+}
+
+#barra {
+    background-color: #8f3471;
+    background-size: 10%, 10%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 3%;
+    border: 1px solid #3b132e;
+}
+#form {
+    background-color: #ebe7ea;
+    border: 1px solid #b2a8af;
+    height: 550px;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 0%;
+   
+}
+
+
+label {
+    position: relative;
+    left: 10%;
+    font-family: Aharoni, cursive;
+    font-size: 25px;
+}
+
+#formulario {
+    margin-top: 5%;
+    margin-left: 10%;
+}
+#formulario input
+{
+  position: relative;
+  margin-top: 1%;
+  margin-bottom: 3%;
+  left: 10%;
+  height: 20px;
+  width: 400px;
+  border:1px outset #8f3471;
+}
+
+#botao
+{
+    position: relative;
+    margin-left: 47.5%;
+    margin-top: 5%;
+    height: 30px;
+    background-color: #d4832c;
+    font-family: Aharoni, cursive; 
+    border:2px outset #9d5406;
+}
+

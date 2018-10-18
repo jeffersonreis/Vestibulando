@@ -4,29 +4,38 @@
         <title>Vestibulando</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="cadastro.css" rel="stylesheet">
+        <link href="perfil.css" rel="stylesheet">
     </head>
     <body>
         <menu id="main-nav">
-        <ul id="nav">
+        <div id="nav">
             <a href="index.html"><img src="imagens/logo.png" id="logo"/></a>
-            <a href="login.html" class="log"> LOGIN </a>
-        </ul>
-    </menu>
-        <div id="barra">
-        <h2> COMECE A SER UM VESTIBULANDO </h2>
+            <a href="principal.html" class="perfil"> PÁGINA PRINCIPAL </a>
         </div>
-        <div id="form">
-            <form id="formulario">
+    </menu>
+  
+        
+        
+        
+<ul id="vertical"> 
+    <li><a href="perfil.html">INFORMAÇÕES</a></li> 
+    <li><a href="alterar_senha.html">ALTERAR SENHA</a> </li> 
+    <li><a href="contato.html">CONTATO</a> </li>
+    <li><a href="check_list.html">CHECK LIST</a></li> 
+    <li><a href="index.html">SAIR</a></li> 
+    
+</ul>
+      <div class="tres"></div>
+      <form id="formulario">
                 <label>Nome:</label> <br><input id="nome" type="text"  placeholder="Nome" required="required"> <br>
                 <label>Sobrenome:</label><br> <input id="sobrenome" type="text"  placeholder="Sobrenome" required="required"><br>
                 <label>Data de nascimento:</label> <br> <input id="data" type="date"  placeholder="data" required="required"><br> 
                 <label>Email:</label> <br> <input id="email" type="text"  placeholder="Email" required="required"><br> 
-                <label>Senha:</label><br> <input id="senha" type="password"  placeholder="Senha" required="required"><br> 
-                <label>Confirmar senha:</label> <br><input id="confsenha" type="password"  placeholder="Confirmar senha" required="required"><br> 
-                <button id="botao" type="button">SER UM VESTIBULANDO</button>
-            </form>
-        </div>
+                <button id="botao" type="button">ATUALIZAR</button>
+      </form>
+    
       
+        
     </body>    
 </html>
+

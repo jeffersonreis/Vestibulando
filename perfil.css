@@ -1,0 +1,130 @@
+menu{
+    margin: 0;
+    padding: 0;
+}
+#nav {
+    list-style-type: none;
+
+}
+#main-nav{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 47px;
+    background-color: #ebe7ea;
+    border-bottom: 1px solid #b2a8af;
+}
+#nav{
+    margin: 0 auto;
+    padding: 0;
+}
+
+#logo {
+    float: left;
+    width: 10%;
+    margin-top: -2.4%;
+    position: relative;
+}
+
+body {
+    margin: 0 auto;
+}
+
+a.perfil {color: #5c1e47;
+        font-family: Aharoni, cursive;
+        
+} 
+
+a.perfil:hover{
+    cursor: pointer;
+    background-color: #CDC9C9; 
+    margin-right: 5%;
+}
+
+a.perfil:link 
+{ 
+    text-decoration: none;
+    float: right;
+    width: 10%;
+    position: relative;
+    padding: 13px 18px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 150px;
+    }
+    
+ul li {
+    position: relative;
+    }
+
+li ul    {
+    position: absolute;
+    left: 149px;
+    top: 0;
+    display: none;
+    }
+    
+ul li a {
+    display: block;
+    text-decoration: none;
+    font-family: Aharoni, cursive;
+    font-size: 25px;
+    color: #5c1e46;
+    background: #f6f4f6;
+    width: 250px;
+    padding: 15px;
+    border: 1px solid #b2a8af; 
+}
+
+li:hover ul { display: block;
+           margin-left: 133px;
+}
+
+ul li a:hover{
+    text-decoration:underline;
+    font-weight: bold;
+    background: #ccc; }
+
+div.tres {
+ width: 280px;
+ height:400px;
+ background: #f6f4f6;
+ border: 1px solid #b2a8af; 
+ 
+ }
+ 
+ label {
+    position: relative;
+    left: 10%;
+    font-family: Aharoni, cursive;
+    font-size: 25px;
+}
+
+#formulario {
+    margin-top: -45%;
+    margin-left: 40%;
+}
+#formulario input
+{
+  position: relative;
+  margin-top: 1%;
+  margin-bottom: 3%;
+  left: 10%;
+  height: 20px;
+  width: 400px;
+  border:1px outset #8f3471;
+}
+#botao
+{
+    position: relative;
+    margin-left: 49%;
+    margin-top: 5%;
+    height: 30px;
+    background-color: #d4832c;
+    font-family: Aharoni, cursive; 
+    border:2px outset #9d5406;
+}
