@@ -19,10 +19,10 @@
       <input type="password" placeholder="password"/>
       <input type="text" placeholder="email address"/>
     </form>
-    <form class="login-form">
-      <input type="text" placeholder="Email"/>
-      <input type="password" placeholder="Senha"/>
-      <button>login</button>
+    <form class="login-form" method="POST" action="login.php">
+      <input name="email" id="email" type="text" placeholder="Email"/>
+      <input name="senha" id="senha" type="password" placeholder="Senha"/>
+      <button value="entrar" id="entrar" name="entrar">login</button>
       <p class="message">Ainda não é um vestibulando? <a href="cadastro.html">Cadastre-se</a></p>
     </form>
   </div>

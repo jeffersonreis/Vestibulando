@@ -22,6 +22,8 @@
         echo "\ndat_nasc: ", $dat_nasc;
         echo "\nemail: ", $email;
         echo "\nsenha eh: ", $senha;
+
+        
         
 		$conexao = mysqli_connect($host, $user, $pass) or die(mysqli_error());
 		mysqli_select_db($conexao, $banco);
