@@ -1,0 +1,34 @@
+
+        
+		$conexao = mysqli_connect($host, $usuario, $pass) or die(mysqli_error());
+		mysqli_select_db($conexao, $banco);
+		mysqli_autocommit($conexao, TRUE);
+
+
+        #$comando = "INSERT INTO usuarios(login, senha) VALUES ('" . $nome . "','" . $senha . "')";
+
+
+        $comando = "INSERT INTO usuarios(nome, sobrenome, dat_nasc, email, senha) VALUES ('" . $nome . "','" . $sobrenome . "','" . $dat_nasc . "','" . $email . "','" . $senha . "')";
+
+        echo "comando eh: ", $comando;
+
+		#mysqli_query($conexao, $comando);
+		mysqli_query($conexao, $comando);
+
+
+
+
+        mysqli_commit($conexao);
+		mysqli_close($conexao);
+		?>
+
+
+ // COMANDO MODELO PARA OS DEMAIS (ALDELIR);
+    #$comando = "INSERT INTO usuarios(login, senha) VALUES ('" . $nome . "','" . $senha . "')";
+
+
+
+
+
+
+

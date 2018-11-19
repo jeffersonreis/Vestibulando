@@ -1,7 +1,6 @@
 <?php
 	session_start();
   	$login_session = $_SESSION['email'];
-  	
 
 	if(isset($login_session)){
 	  echo"Bem-Vindo, $login_session<br>";
@@ -24,6 +23,7 @@
     <body>
 		<form class="sair-form" method="POST" action="deslogar.php">
 			<p class="message">SAIR<a href="deslogar.php">SAIR</a></p>
+			<p><?php echo $nome ?></p>
 		</form>
 	</body>
 </html>

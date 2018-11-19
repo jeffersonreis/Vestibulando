@@ -9,9 +9,9 @@
   $db = 'vestibulando';
 
   // Conectando no mysql
-  $connect = mysqli_connect($host, $usuario, $pass, $db) or die (mysql_error());
-  mysqli_select_db($connect, $db); // Tipo 'use'
-  mysqli_autocommit($connect, TRUE);
+  $conexao = mysqli_connect($host, $usuario, $pass, $db) or die (mysql_error());
+  mysqli_select_db($conexao, $db); // Tipo 'use'
+  mysqli_autocommit($conexao, TRUE);
 
 
   // Pegando as informacoes do email
@@ -26,7 +26,7 @@
     if (isset($entrar)) {
 
       //Verifica se existe o usuario com a mesma senha...
-      $verifica = mysqli_query($connect, $comando_verificar);
+      $verifica = mysqli_query($conexao, $comando_verificar);
         // Se retornar nenhum, não tem.
         if (mysqli_num_rows($verifica)<=0){
           echo"<script language='javascript' type='text/javascript'>alert('email e/ou senha incorretos');window.location.href='login.html';</script>";
@@ -38,7 +38,7 @@
           #echo 'email CERTO';            
           $_SESSION['email'] = $email;
           $_SESSION['senha'] = $senha;
-          header('location: index.php');
+          header('location: principal.php');
         }
     }
 
