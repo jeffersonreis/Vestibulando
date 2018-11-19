@@ -1,9 +1,10 @@
 <?php
-  	$login_cookie = $_COOKIE['email'];
+	session_start();
+  	$login_session = $_SESSION['email'];
   	
 
-	if(isset($login_cookie)){
-	  echo"Bem-Vindo, $login_cookie <br>";
+	if(isset($login_session)){
+	  echo"Bem-Vindo, $login_session<br>";
 	  echo"Essas informações <font color='red'>PODEM</font> ser acessadas por você";
 
 	}else{

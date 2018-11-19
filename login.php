@@ -1,5 +1,7 @@
 <?php 
-  
+  // session_start inicia a sessao
+  session_start();
+
   // Dados do MySQL
   $host = 'localhost';
   $usuario = 'root';
@@ -25,18 +27,18 @@
 
       //Verifica se existe o usuario com a mesma senha...
       $verifica = mysqli_query($connect, $comando_verificar);
-
         // Se retornar nenhum, não tem.
         if (mysqli_num_rows($verifica)<=0){
           echo"<script language='javascript' type='text/javascript'>alert('email e/ou senha incorretos');window.location.href='login.html';</script>";
-          #echo 'email ERRADO';
+         #echo 'email ERRADO';
           die(); 
 
         // Se tiver, volta para o HOME.
         }else{
-          #echo 'email CERTO';
-          setcookie("email",$email);
-          header("Location:index.php");
+          #echo 'email CERTO';            
+          $_SESSION['email'] = $email;
+          $_SESSION['senha'] = $senha;
+          header('location: index.php');
         }
     }
 
