@@ -124,11 +124,23 @@ label {
   width: 400px;
   border:1px outset #8f3471;
 }
+
+#formulario textarea
+{
+  position: relative;
+  margin-top: 1%;
+  margin-bottom: 3%;
+  left: 10%;
+  height: 200px;
+  width: 400px;
+  border:1px outset #8f3471;
+}
+
 #botao
 {
     position: relative;
     margin-left: 52%;
-    margin-top: 5%;
+    margin-top: 40%;
     height: 30px;
     background-color: #d4832c;
     font-family: Aharoni, cursive; 
