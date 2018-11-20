@@ -19,3 +19,6 @@ SELECT * FROM usuarios;
 UPDATE usuarios SET senha='444' WHERE email='jeffersonluis.reis@gmail.com';
 
 SET SQL_SAFE_UPDATES = 0;
+
+
+SELECT nome FROM usuarios WHERE email = 'jeffersonluis.reis@gmail.com'

@@ -1,3 +1,28 @@
+<?php
+    session_start();
+
+    $host = "localhost";
+    $usuario = "root";
+    $pass = "";
+    $db = "vestibulando";
+
+    $conexao = mysqli_connect($host, $usuario, $pass, $db) or die (mysql_error());
+    mysqli_select_db($conexao, $db);
+    mysqli_autocommit($conexao, TRUE);
+
+    
+    $email_session = $_SESSION['email'];
+
+    $comando_buscar = "SELECT nome FROM usuarios WHERE email = '" . $email_session . "'";
+    $busca = mysqli_query($conexao, $comando_buscar);
+    
+    $mostrar = mysqli_fetch_assoc($busca);
+
+    echo htmlentities($mostrar);
+
+
+    //$nome = 
+?>
 <!DOCTYPE html>
 <html>
     <head>

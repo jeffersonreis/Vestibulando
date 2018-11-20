@@ -36,8 +36,10 @@
         // Se tiver, volta para o HOME.
         }else{
           #echo 'email CERTO';            
+          
           $_SESSION['email'] = $email;
           $_SESSION['senha'] = $senha;
+
           header('location: principal.php');
         }
     }
