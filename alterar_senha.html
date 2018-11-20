@@ -26,10 +26,10 @@
     
 </ul>
       <div class="tres"></div>
-      <form id="formulario">
-                <label>Senha atual:</label><br> <input id="senha" type="password"  placeholder="Senha atual" required="required"><br> 
-                <label>Nova senha:</label> <br><input id="confsenha" type="password"  placeholder="Nova senha" required="required"><br> 
-                <button id="botao" type="button">ALTERAR</button>
+      <form id="formulario" method='POST' action="alterando_senha.php">
+            <label>Senha atual:</label><br> <input id="senha" name="senha" type="password"  placeholder="Senha atual" required="required"><br> 
+            <label>Nova senha:</label> <br><input id="nova_senha" name="nova_senha" type="password"  placeholder="Nova senha" required="required"><br> 
+            <button id="botao" type="submit">ALTERAR</button>
       </form>
     
       
