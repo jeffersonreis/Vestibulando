@@ -1,7 +1,7 @@
 <?php
   
   session_start();
-  $session_email = $_SESSION['email'];
+  $email_session = $_SESSION['email'];
 
   // Essa página tem a intenção de fazer a conexão com o BD e inserir as informações.
 	
@@ -16,35 +16,55 @@
 	mysqli_autocommit($conexao, TRUE);
 
 	// CAPTURAR AS VARIAVEIS DO FORMULARIO HTML;
-  $novo_nome = $_POST['nome'];  
-  $novo_sobrenome = $_POST['novo_sobrenome'];  
-	$nova_dat = $_POST['dat_nasc'];  
+    $novo_nome = $_POST['nome'];  
+    $novo_sobrenome = $_POST['sobrenome'];  
+	  $nova_dat = $_POST['dat_nasc'];  
 
-	// TESTE PARA VER SE TA TUDO OK COM AS VARIAVEIS;
-  echo "\nsenha eh: ", $senha_atual;
-  echo "\nnovasenha eh: ", $nova_senha;
+    #echo $novo_nome;
+    #echo $novo_sobrenome;
+    #echo $nova_dat;
 
-  // Verificar se a senha está ok
-  $comando_verificar = "SELECT * FROM usuarios WHERE email = '" . $session_email . "' AND senha = '" . $senha_atual . "'";
+  // CAPTURAR AS VARIAVEIS QUE JÁ EXISTIAM
 
-  $verifica = mysqli_query($conexao, $comando_verificar);
+    // Com base no email da seção, pega as demais informações do BD.
+    $comando_buscar = "SELECT * FROM usuarios WHERE email = '" . $email_session . "'";
+    $busca = mysqli_query($conexao, $comando_buscar);
+    // Transforma os dados em uma array (valor ordenado, tipo dicionario)
+    $mostrar = mysqli_fetch_assoc($busca);
+
+    // Então, para capturar as informações...
+    $nome = $mostrar['nome'];
+    $sobrenome = $mostrar['sobrenome'];
+    $dat_nasc = $mostrar['dat_nasc'];
+
+    echo "Data antiga era " . $dat_nasc;
+
+
+  // CASO O FORMULARIO DA PÁGINA NÃO FOI MODIFICADO, OU SEJA, EM BRANCO, VOLTARA A SER O QUE ERA.
+  if ($novo_nome == NULL) {
+    echo "Nome NULO";
+    $novo_nome = $nome;
+  };
+
+  if ($novo_sobrenome == NULL) {
+    echo "Sobrenome NULO";
+    $novo_sobrenome = $sobrenome;
+  };
+
+  if ($nova_dat == NULL) {
+    echo "Data é NULO";
+    $nova_dat = $dat_nasc;
+  };
+
+  $comando = "UPDATE usuarios SET nome='" . $novo_nome . "', sobrenome='" . $novo_sobrenome . "', dat_nasc = '" . $nova_dat . "' WHERE email='" . $email_session . "'";
+
+  echo $comando;
   
-  // Se a senha tiver errada, notifica e para.
-  if (mysqli_num_rows($verifica)==0){
-        echo"<script language='javascript' type='text/javascript'>alert('Senha não confere');window.location.href='alterar_senha.html';</script>";
-       #echo 'email ERRADO';
-        die(); 
-  }
+  // MOSTRA O COMANDO PARA VER SE TÁ OK;
+  mysqli_query($conexao, $comando);
 
-  else{
-    $comando = "UPDATE usuarios SET senha='" . $nova_senha . "' WHERE email='" . $session_email . "'";
+  echo"<script language='javascript' type='text/javascript'>alert('informações Alteradas com Sucesso!');window.location.href='perfil.php';</script>";
 
-    // MOSTRA O COMANDO PARA VER SE TÁ OK;
-    mysqli_query($conexao, $comando);
-
-    echo"<script language='javascript' type='text/javascript'>alert('Senha Alterada com Sucesso!');window.location.href='alterar_senha.html';</script>";
-
-  }
 
 mysqli_close($conexao);
 ?>

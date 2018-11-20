@@ -12,6 +12,9 @@ CREATE TABLE usuarios(
 );
 
 
+
+
+
 INSERT INTO usuarios(nome, sobrenome, dat_nasc, email, senha) VALUES('Jefferson','dos reis','2000-11-20','jeff@gmail.com','33305300');
 
 SELECT * FROM usuarios;
@@ -20,5 +23,4 @@ UPDATE usuarios SET senha='444' WHERE email='jeffersonluis.reis@gmail.com';
 
 SET SQL_SAFE_UPDATES = 0;
 
-
-SELECT nome FROM usuarios WHERE email = 'jeffersonluis.reis@gmail.com'
+UPDATE usuarios SET nome='Robson', sobrenome='', dat_nasc = '2000-11-20' WHERE email='jeff@gmail.com'
