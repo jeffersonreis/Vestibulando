@@ -10,15 +10,21 @@
     mysqli_select_db($conexao, $db);
     mysqli_autocommit($conexao, TRUE);
 
-    
+    // Pega o email da seção atual
     $email_session = $_SESSION['email'];
 
-    $comando_buscar = "SELECT nome FROM usuarios WHERE email = '" . $email_session . "'";
+
+    // Com base no email da seção, pega as demais informações do BD.
+    $comando_buscar = "SELECT * FROM usuarios WHERE email = '" . $email_session . "'";
     $busca = mysqli_query($conexao, $comando_buscar);
     
+    // Transforma os dados em uma array (valor ordenado, tipo dicionario)
     $mostrar = mysqli_fetch_assoc($busca);
 
-    echo htmlentities($mostrar);
+    // Então, para capturar as informações...
+    $nome = $mostrar['nome'];
+    $sobrenome = $mostrar['sobrenome'];
+    $dat_nasc = $mostrar['dat_nasc'];
 
 
     //$nome = 
@@ -51,12 +57,14 @@
     
 </ul>
       <div class="tres"></div>
-      <form id="formulario">
-                <label>Nome:</label> <br><input id="nome" type="text"  placeholder="Nome" required="required"> <br>
-                <label>Sobrenome:</label><br> <input id="sobrenome" type="text"  placeholder="Sobrenome" required="required"><br>
-                <label>Data de nascimento:</label> <br> <input id="data" type="date"  placeholder="data" required="required"><br> 
-                <label>Email:</label> <br> <input id="email" type="text"  placeholder="Email" required="required"><br> 
-                <button id="botao" type="button">ATUALIZAR</button>
+      <form id="formulario" method='POST' action='alterando_informacoes.php'>
+                <label>Nome: <?php echo $nome?></label> <br><input id="nome" name="nome" type="text"  placeholder="Escreva para alterar o Nome"> <br>
+
+                <label>Sobrenome: <?php echo $sobrenome?></label><br> <input id="sobrenome" name="sobrenome" type="text"  placeholder="Escreva para alterar o Sobrenome"><br>
+
+                <label>Data de nascimento: <?php echo $dat_nasc?></label> <br> <input id="data" name="dat_nasc" type="date"  placeholder="Escreva para alterar a data"><br> 
+
+                <button id="botao" type="submit">ATUALIZAR</button>
       </form>
     
       
