@@ -12,7 +12,7 @@
         <menu id="main-nav">    
         <div id="nav">
             <a href="index.html"><img src="imagens/logo.png" id="logo"/></a>
-            <a href="perfil.html" class="perfil"><?php echo $_SESSION['email']?></a>
+            <a href="perfil.php" class="perfil"><?php echo $_SESSION['email']?></a>
         </div>
     </menu>
   

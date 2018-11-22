@@ -41,7 +41,7 @@
         <menu id="main-nav">
         <div id="nav">
             <a href="index.html"><img src="imagens/logo.png" id="logo"/></a>
-            <a href="principal.html" class="perfil"> PÁGINA PRINCIPAL </a>
+            <a href="principal.php" class="perfil"> PÁGINA PRINCIPAL </a>
         </div>
     </menu>
   
