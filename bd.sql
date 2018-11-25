@@ -1,6 +1,7 @@
 use vestibulando;
 
-DROP TABLE IF EXISTS usuarios;
+DROP TABLE IF EXISTS disciplina;
+DROP TABLE IF EXISTS conteudo;
 
 CREATE TABLE usuarios(
 	id INT(5) AUTO_INCREMENT PRIMARY KEY,
@@ -12,15 +13,120 @@ CREATE TABLE usuarios(
 );
 
 
+CREATE TABLE disciplina(
+	id_disc INT(5) AUTO_INCREMENT PRIMARY KEY,
+	nome_disc VARCHAR(60) NOT NULL
+);
 
 
+CREATE TABLE conteudo(
+	id_cont INT(5) AUTO_INCREMENT PRIMARY KEY,
+    id_disc INT(5) NOT NULL, 
+	nome_cont VARCHAR(60) NOT NULL
+);
 
+
+CREATE TABLE check_list(
+	id INT,
+    id_cont INT,
+    id_disc INT,
+    
+    concluido BOOL NOT NULL,
+    PRIMARY KEY(id, id_cont, id_disc)
+);
+
+
+-- TESTE CHECK --
+INSERT INTO check_list(situacao) 
+
+-- inserir um usuario -- 
 INSERT INTO usuarios(nome, sobrenome, dat_nasc, email, senha) VALUES('Jefferson','dos reis','2000-11-20','jeff@gmail.com','33305300');
+
+-- mostrar usuarios --
+SELECT * FROM usuarios;
+
+
+-- inserir as disciplina --
+INSERT INTO disciplina(nome_disc) VALUES('BIOLOGIA');
+INSERT INTO disciplina(nome_disc) VALUES('QUÍMICA');
+INSERT INTO disciplina(nome_disc) VALUES('FÍSICA');
+INSERT INTO disciplina(nome_disc) VALUES('MATEMÁTICA');
+INSERT INTO disciplina(nome_disc) VALUES('HISTÓRIA');
+INSERT INTO disciplina(nome_disc) VALUES('PORTUGUÊS');
+INSERT INTO disciplina(nome_disc) VALUES('INGLÊS');
+INSERT INTO disciplina(nome_disc) VALUES('ESPANHOL');
+INSERT INTO disciplina(nome_disc) VALUES('FILOSOFIA E SOCIOLOGIA');
+
+-- mostrar disciplina --
+SELECT * FROM disciplina;
 
 SELECT * FROM usuarios;
 
-UPDATE usuarios SET senha='444' WHERE email='jeffersonluis.reis@gmail.com';
 
+SELECT * FROM conteudo;
+
+1 - 5
+
+SELECT id_cont, id_disc
+  FROM conteudo
+ WHERE id_cont IN (1,5);
+							#user #cont #disc
+INSERT INTO check_list VALUES (2, 1, 1, true), (2, 5, 1, true);
+
+
+SELECT nome, nome_cont, nome_disc
+  FROM check_list c INNER JOIN usuarios u ON c.id = u.id
+ INNER JOIN disciplina d ON c.id_disc = d.id_disc
+ INNER JOIN conteudo o ON c.id_cont = o.id_cont;
+
+-- inserir conteudo -- 
+	-- Biologia --
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Ácidos nucléicos');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Algas');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Anelídeos');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Anfíbios');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Angiospermas');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Artrópodos');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Aves');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Bactérias');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Biociclos');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Biomas');
+ 
+	-- Quimica --
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(2, 'Matéria');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(2, 'Atomística');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(2, 'Tabela periódica');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(2, 'Ligações Químicas');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(2, 'Geometria Molecular');
+
+
+-- mostrar conteudo --
+SELECT * FROM conteudo;
+
+
+SELECT nome_cont as conteudo, nome_disc as disciplina
+	FROM conteudo c
+	INNER JOIN disciplina d ON c.id_disc = d.id_disc;
+
+
+
+
+
+
+
+
+
+
+-- testes --
+
+
+
+-- para desativar o bloqueio de update, delete... --
 SET SQL_SAFE_UPDATES = 0;
 
-UPDATE usuarios SET nome='Robson', sobrenome='', dat_nasc = '2000-11-20' WHERE email='jeff@gmail.com'
+-- alterar senha pelo email --
+UPDATE usuarios SET senha='444' WHERE email='jeffersonluis.reis@gmail.com';
+
+
+-- alterar tudo pelo email --
+UPDATE usuarios SET nome='Robson', sobrenome='', dat_nasc='2000-11-20' WHERE email='jeff@gmail.com'

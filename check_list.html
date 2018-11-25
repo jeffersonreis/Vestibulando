@@ -59,15 +59,16 @@
       <div class="tres"></div>
       <h3> CHECK LIST </h3>
       
-   
+      <?php ?>
+
       <p> Marque os conteúdos que já estudou!</p>
       <h6>BIOLOGIA </h6>
       
           <b> <div id="checkbox">
-            <input type="checkbox" name="bike" value="on">I have a bike
 
+          <form action=/check.php method="post">
             <input type="checkbox" id="check" name="feature"
-               value="scales" />
+               value="scales" checked/>
             <label for="scales"> Ácidos nucléicos </label>
             <br>
             <br>
@@ -115,11 +116,8 @@
                value="scales" />
             <label for="scales"> Biomas </label>
         </div>
-          </b>  
-      
-     
-      
-     
-      
+        <input type="submit" name="validar" value="Enviar">
+    </form>
+          </b>
 </body>    
 </html>
