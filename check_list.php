@@ -14,6 +14,10 @@
     // Pega o email da seção atual
     $email_session = $_SESSION['email'];
 
+    $comando_iduser = "SELECT id FROM usuarios WHERE email = '" . $email_session . "';";
+    $busca = mysqli_query($conexao, $comando_iduser);
+    $id_user = mysqli_fetch_assoc($busca);
+
     // Definir qual matéria deseja (1 = biologia)
     $disciplina = 1;
 
@@ -104,11 +108,12 @@
 
                 // criamos um comando para ver se o conteúdo selecionado está 'checkado' no usuário ou não, para isso, pegamos o id do conteúdo e vemos se o usuário tem esse id na relação entre ele e o checklist.
 
+
                 $comando = "SELECT o.id_cont
                             FROM check_list c INNER JOIN usuarios u ON c.id = u.id
                                 INNER JOIN disciplina d ON c.id_disc = d.id_disc
                                 INNER JOIN conteudo o ON c.id_cont = o.id_cont
-                            WHERE o.id_cont = " . $conteudo['id_cont'];
+                            WHERE o.id_cont = " . $conteudo['id_cont'] . " AND u.id = '" . $id_user['id'] . "';";
 
                 $verifica = mysqli_query($conexao, $comando);
                 

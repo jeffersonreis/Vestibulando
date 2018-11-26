@@ -65,7 +65,7 @@ SELECT * FROM usuarios;
 
 SELECT * FROM conteudo;
 
-1 - 5
+-- 1 - 5 --
 
 SELECT id_cont, id_disc
   FROM conteudo
