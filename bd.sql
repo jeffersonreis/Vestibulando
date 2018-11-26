@@ -74,10 +74,22 @@ SELECT id_cont, id_disc
 INSERT INTO check_list VALUES (2, 1, 1, true), (2, 5, 1, true);
 
 
-SELECT nome, nome_cont, nome_disc
+SELECT nome, nome_cont, nome_disc, o.id_cont
   FROM check_list c INNER JOIN usuarios u ON c.id = u.id
  INNER JOIN disciplina d ON c.id_disc = d.id_disc
  INNER JOIN conteudo o ON c.id_cont = o.id_cont;
+ WHERE o.id_cont = 1;
+ 
+ 
+ 
+ -- Ver SLA O QUE --
+ WHERE o.id_cont = 3;
+ 
+
+SELECT nome_cont, nome_disc
+	FROM disciplina d
+	INNER JOIN conteudo o ON c.id_cont = o.id_cont;
+	
 
 -- inserir conteudo -- 
 	-- Biologia --
@@ -103,11 +115,22 @@ INSERT INTO conteudo(id_disc, nome_cont) VALUES(2, 'Geometria Molecular');
 -- mostrar conteudo --
 SELECT * FROM conteudo;
 
-
-SELECT nome_cont as conteudo, nome_disc as disciplina
+	-- mostra todos os conteudos --
+SELECT nome_cont as conteudo, nome_disc as disciplina, d.id_disc
 	FROM conteudo c
-	INNER JOIN disciplina d ON c.id_disc = d.id_disc;
+	INNER JOIN disciplina d ON c.id_disc = d.id_disc
+    WHERE d.id_disc = 1; // Mostrará apenas disciplina 1 (biologia)
 
+
+
+
+
+
+
+
+
+
+SELECT nome_cont as conteudo, nome_disc as disciplina, id_cont FROM conteudo c INNER JOIN disciplina d ON c.id_disc =d.id_disc WHERE d.id_disc = 1; 
 
 
 
