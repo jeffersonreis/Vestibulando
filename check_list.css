@@ -120,6 +120,18 @@ input {
     font-family: arial;
 }
 
+#botao
+{
+    position: absolute;
+    margin-left: 49%;
+    margin-top: 2%;
+    height: 30px;
+    background-color: #d4832c;
+    font-family: Aharoni, cursive; 
+    border:2px outset #9d5406;
+}
+
+
 p{
     margin-left: 25.5%;
     margin-top: -1%;

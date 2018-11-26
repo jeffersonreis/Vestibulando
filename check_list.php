@@ -1,7 +1,5 @@
 <?php 
-
     session_start();
-
     // Config mysql
 
     $host = "localhost";
@@ -25,7 +23,7 @@
                         INNER JOIN disciplina d ON c.id_disc =d.id_disc
                         WHERE d.id_disc = " . $disciplina . ";";
 
-    echo $comando_buscar;
+    // echo $comando_buscar;
     $busca = mysqli_query($conexao, $comando_buscar);
 ?>
 
@@ -97,7 +95,7 @@
       
           <b> <div id="checkbox">
 
-          <form action=/check.php method="post">
+          <form action=checkando.php method="post">
 
             <?php
 
@@ -106,7 +104,7 @@
 
                 // criamos um comando para ver se o conteúdo selecionado está 'checkado' no usuário ou não, para isso, pegamos o id do conteúdo e vemos se o usuário tem esse id na relação entre ele e o checklist.
 
-                $comando = "SELECT nome, nome_cont, nome_disc, o.id_cont
+                $comando = "SELECT o.id_cont
                             FROM check_list c INNER JOIN usuarios u ON c.id = u.id
                                 INNER JOIN disciplina d ON c.id_disc = d.id_disc
                                 INNER JOIN conteudo o ON c.id_cont = o.id_cont
@@ -131,36 +129,9 @@
                 };
 };
 ?>
-            <!-- Modelo para checkados-->
-<!--            <input type="checkbox" id="check" name="o.id_cont" value="scales" checked/>
-            <label for="scales"> NOME </label>
-            <br>
-            <br>
-
-             Modelo para não checkados
-            <input type="checkbox" id="check" name="o.id_cont" value="scales"/>
-            <label for="scales"> NOME </label>
-            <br>
-            <br>
-
-
-
-
-            <input type="checkbox" id="check" name="feature"
-               value="scales" checked/>
-            <label for="scales"> Ácidos nucléicos </label>
-            <br>
-            <br>
-            
-            <input type="checkbox" id="check" name="feature"
-               value="scales" />
-            <label for="scales"> Algas  </label>
-            <br>
-            <br>
--->
-
         </div>
-        <input type="submit" name="validar" value="Enviar">
+        <button id="botao" type="submit">ALTERAR</button>
+
     </form>
           </b>
 </body>    

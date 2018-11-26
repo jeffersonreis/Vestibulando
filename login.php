@@ -43,6 +43,4 @@
           header('location: principal.php');
         }
     }
-
-
 ?>

@@ -48,12 +48,12 @@ SELECT * FROM usuarios;
 
 -- inserir as disciplina --
 INSERT INTO disciplina(nome_disc) VALUES('BIOLOGIA');
-INSERT INTO disciplina(nome_disc) VALUES('QUÍMICA');
-INSERT INTO disciplina(nome_disc) VALUES('FÍSICA');
-INSERT INTO disciplina(nome_disc) VALUES('MATEMÁTICA');
-INSERT INTO disciplina(nome_disc) VALUES('HISTÓRIA');
-INSERT INTO disciplina(nome_disc) VALUES('PORTUGUÊS');
-INSERT INTO disciplina(nome_disc) VALUES('INGLÊS');
+INSERT INTO disciplina(nome_disc) VALUES('QUIMICA');
+INSERT INTO disciplina(nome_disc) VALUES('FISICA');
+INSERT INTO disciplina(nome_disc) VALUES('MATEMATICA');
+INSERT INTO disciplina(nome_disc) VALUES('HISTORIA');
+INSERT INTO disciplina(nome_disc) VALUES('PORTUGUES');
+INSERT INTO disciplina(nome_disc) VALUES('INGLES');
 INSERT INTO disciplina(nome_disc) VALUES('ESPANHOL');
 INSERT INTO disciplina(nome_disc) VALUES('FILOSOFIA E SOCIOLOGIA');
 
@@ -73,12 +73,14 @@ SELECT id_cont, id_disc
 							#user #cont #disc
 INSERT INTO check_list VALUES (2, 1, 1, true), (2, 5, 1, true);
 
+DELETE FROM check_list WHERE id_cont = 5;
 
 SELECT nome, nome_cont, nome_disc, o.id_cont
   FROM check_list c INNER JOIN usuarios u ON c.id = u.id
  INNER JOIN disciplina d ON c.id_disc = d.id_disc
- INNER JOIN conteudo o ON c.id_cont = o.id_cont;
+ INNER JOIN conteudo o ON c.id_cont = o.id_cont
  WHERE o.id_cont = 1;
+ 
  
  
  
@@ -93,22 +95,22 @@ SELECT nome_cont, nome_disc
 
 -- inserir conteudo -- 
 	-- Biologia --
-INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Ácidos nucléicos');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Acidos nucleicos');
 INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Algas');
-INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Anelídeos');
-INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Anfíbios');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Anelideos');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Anfibios');
 INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Angiospermas');
-INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Artrópodos');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Artropodos');
 INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Aves');
-INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Bactérias');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Bacterias');
 INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Biociclos');
 INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Biomas');
  
 	-- Quimica --
-INSERT INTO conteudo(id_disc, nome_cont) VALUES(2, 'Matéria');
-INSERT INTO conteudo(id_disc, nome_cont) VALUES(2, 'Atomística');
-INSERT INTO conteudo(id_disc, nome_cont) VALUES(2, 'Tabela periódica');
-INSERT INTO conteudo(id_disc, nome_cont) VALUES(2, 'Ligações Químicas');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(2, 'Materia');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(2, 'Atomistica');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(2, 'Tabela periodica');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(2, 'Ligações Quimicas');
 INSERT INTO conteudo(id_disc, nome_cont) VALUES(2, 'Geometria Molecular');
 
 
@@ -119,20 +121,7 @@ SELECT * FROM conteudo;
 SELECT nome_cont as conteudo, nome_disc as disciplina, d.id_disc
 	FROM conteudo c
 	INNER JOIN disciplina d ON c.id_disc = d.id_disc
-    WHERE d.id_disc = 1; // Mostrará apenas disciplina 1 (biologia)
-
-
-
-
-
-
-
-
-
-
-SELECT nome_cont as conteudo, nome_disc as disciplina, id_cont FROM conteudo c INNER JOIN disciplina d ON c.id_disc =d.id_disc WHERE d.id_disc = 1; 
-
-
+    WHERE d.id_disc = 1; -- // Mostrará apenas disciplina 1 (biologia) --
 
 
 

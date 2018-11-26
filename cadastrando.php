@@ -37,8 +37,14 @@
   // Verificar se não tem nenhum usuario com o mesmo email
   $comando_verificar = "SELECT * FROM usuarios WHERE email = '" . $email . "'";
   $verifica = mysqli_query($conexao, $comando_verificar);
-  
-  // Se retornar nenhum, não tem.
+
+  // Se tiver algum resultado, já tem.
+  if (mysqli_num_rows($verifica)>0){
+    echo"<script language='javascript' type='text/javascript'>alert('Email já usado!');window.location.href='login.html';</script>";
+      die(); 
+  }
+
+  // Se retornar nenhum, não tem, então continua.
 
   if ($conf_senha != $senha){
     echo"<script language='javascript' type='text/javascript'>alert('Senhas não correspondem');window.location.href='login.html';</script>";
@@ -47,24 +53,17 @@
 
   }
 
-  if (mysqli_num_rows($verifica)>0){
-        echo"<script language='javascript' type='text/javascript'>alert('Email já usado');window.location.href='login.html';</script>";
-       #echo 'email ERRADO';
-        die(); 
-  }
 
-  // COMANDO MODELO PARA OS DEMAIS (ALDELIR);
-  #$comando = "INSERT INTO usuarios(login, senha) VALUES ('" . $nome . "','" . $senha . "')";
 
   // COMANDO PARA ADICIONAR NO BD;
   $comando = "INSERT INTO usuarios(nome, sobrenome, dat_nasc, email, senha) VALUES ('" . $nome . "','" . $sobrenome . "','" . $dat_nasc . "','" . $email . "','" . $senha . "')";
 
-  // MOSTRA O COMANDO PARA VER SE TÁ OK;
-  echo "comando eh: ", $comando;
+
+	mysqli_query($conexao, $comando) or die (mysql_error());
+  
+  echo"<script language='javascript' type='text/javascript'>alert('Seja Bem Vindo, Vestibulando!');window.location.href='login.html';</script>";
 
 
-	#mysqli_query($conexao, $comando);
-	mysqli_query($conexao, $comando);
 
 	mysqli_close($conexao);
 
