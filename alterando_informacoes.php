@@ -20,10 +20,7 @@
     $novo_sobrenome = $_POST['sobrenome'];  
 	  $nova_dat = $_POST['dat_nasc'];  
 
-    #echo $novo_nome;
-    #echo $novo_sobrenome;
-    #echo $nova_dat;
-
+ 
   // CAPTURAR AS VARIAVEIS QUE JÁ EXISTIAM
 
     // Com base no email da seção, pega as demais informações do BD.
@@ -37,28 +34,23 @@
     $sobrenome = $mostrar['sobrenome'];
     $dat_nasc = $mostrar['dat_nasc'];
 
-    echo "Data antiga era " . $dat_nasc;
 
 
   // CASO O FORMULARIO DA PÁGINA NÃO FOI MODIFICADO, OU SEJA, EM BRANCO, VOLTARA A SER O QUE ERA.
   if ($novo_nome == NULL) {
-    echo "Nome NULO";
     $novo_nome = $nome;
   };
 
   if ($novo_sobrenome == NULL) {
-    echo "Sobrenome NULO";
     $novo_sobrenome = $sobrenome;
   };
 
   if ($nova_dat == NULL) {
-    echo "Data é NULO";
     $nova_dat = $dat_nasc;
   };
 
   $comando = "UPDATE usuarios SET nome='" . $novo_nome . "', sobrenome='" . $novo_sobrenome . "', dat_nasc = '" . $nova_dat . "' WHERE email='" . $email_session . "'";
 
-  echo $comando;
   
   // MOSTRA O COMANDO PARA VER SE TÁ OK;
   mysqli_query($conexao, $comando);

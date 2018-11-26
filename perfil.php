@@ -52,8 +52,8 @@
     <li><a href="perfil.html">INFORMAÇÕES</a></li> 
     <li><a href="alterar_senha.html">ALTERAR SENHA</a> </li> 
     <li><a href="contato.html">CONTATO</a> </li>
-    <li><a href="check_list.html">CHECK LIST</a></li> 
-    <li><a href="index.html">SAIR</a></li> 
+    <li><a href="check_list.php">CHECK LIST</a></li> 
+    <li><a href="deslogar.php">SAIR</a></li> 
     
 </ul>
       <div class="tres"></div>

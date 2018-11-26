@@ -2,7 +2,6 @@
 	session_start();
   	$session_email = $_SESSION['email'];
 
-if(isset($nome)){
   	// Essa página tem a intenção de fazer a conexão com o BD e inserir as informações.
 	
   	// INFORMAÇÕES DO MYSQL;
@@ -23,18 +22,6 @@ if(isset($nome)){
 
     // 1 = Biologia
 	$disciplina = 1;
-
-	//function checkarConteudo($id_cont){
- 	//	$comando_checkar = "INSERT INTO check_list VALUES (" . $id_user['id'] . "," . $id_cont . "," .  $disciplina . ", true);";
- 	//	mysqli_query($conexao, $comando_checkar);
-		
-	//}
-
-	//function descheckarConteudo($id_cont){
-	//	$comando_descheckar = "DELETE FROM check_list WHERE id = " . $id_user['id'] . " AND id_cont = " . $id_cont;
-	//	mysqli_query($conexao, $comando_descheckar);
-	//}
-
 
 
 	// Buscar todos os conteúdos
@@ -68,9 +55,7 @@ if(isset($nome)){
 
 	
 	echo "<script language='javascript' type='text/javascript'>alert('Conteúdos Alterados!');window.location.href='check_list.php';</script>";
-
-
 	};
-	mysqli_close($conexao);
 
+	mysqli_close($conexao);
 ?>
