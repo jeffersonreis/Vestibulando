@@ -65,7 +65,12 @@ INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Aves');
 INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Bacterias');
 INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Biociclos');
 INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Biomas');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Controle Nervoso');
+
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Corpo Humano');
+INSERT INTO conteudo(id_disc, nome_cont) VALUES(1, 'Sistema Cardíaco');
  
+
 	-- Quimica --
 INSERT INTO conteudo(id_disc, nome_cont) VALUES(2, 'Materia');
 INSERT INTO conteudo(id_disc, nome_cont) VALUES(2, 'Atomistica');

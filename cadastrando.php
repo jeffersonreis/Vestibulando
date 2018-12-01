@@ -26,14 +26,6 @@
 	$senha = $_POST['senha'];  
   $conf_senha = $_POST['conf_senha'];
 
-	// TESTE PARA VER SE TA TUDO OK COM AS VARIAVEIS;
-  echo "\nlogin eh: ", $nome;
-  echo "\nsobrenome eh: ", $sobrenome;
-  echo "\ndat_nasc: ", $dat_nasc;
-  echo "\nemail: ", $email;
-  echo "\nsenha eh: ", $senha;
-  echo "\nconfsenha eh: ", $conf_senha;
-
   // Verificar se não tem nenhum usuario com o mesmo email
   $comando_verificar = "SELECT * FROM usuarios WHERE email = '" . $email . "'";
   $verifica = mysqli_query($conexao, $comando_verificar);

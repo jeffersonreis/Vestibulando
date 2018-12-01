@@ -32,13 +32,12 @@
 
     $busca = mysqli_query($conexao, $comando_buscar);
 
-
     // Conta o números de conteúdos, para pegar cada um dos check_box
 	$num_conteudos = mysqli_num_rows($busca);
 
 
 	// Vai percorrer de 1 até o número máximo de conteúdos, vai ver se está marcado ou não e vai registrar no BD
-	for ($i = 1; $i <= $num_conteudos; $i++){
+	for ($i = 1; $i <= 30; $i++){
 		$i = (string)$i;
 		if (isset($_POST[$i])) {
 			$id_cont = $i;
