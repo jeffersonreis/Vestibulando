@@ -5,8 +5,10 @@ use vestibulando;
 DROP TABLE IF EXISTS usuarios;
 DROP TABLE IF EXISTS disciplina;
 DROP TABLE IF EXISTS conteudo;
-DROP TABLE IF EXISTS checl_list;
+DROP TABLE IF EXISTS check_list;
 
+DROP TABLE IF EXISTS exercicios;
+DROP TABLE IF EXISTS alternativas;
 
 -- Criar as tabelas --
 CREATE TABLE usuarios(
@@ -32,6 +34,23 @@ CREATE TABLE conteudo(
 );
 
 
+CREATE TABLE exercicios (
+	id_exerc INT AUTO_INCREMENT PRIMARY KEY,
+    id_disc INT,
+    exercicio MEDIUMTEXT NOT NULL, -- A QUESTÃO EM SI
+    quest_certa INT, -- O ID DA ALTERNATIVA CORRETA
+    
+    FOREIGN KEY (id_disc) REFERENCES disciplina(id_disc)
+);
+
+CREATE TABLE alternativas(
+	id_alternativa INT AUTO_INCREMENT PRIMARY KEY,
+    id_exerc INT,
+	alternativa MEDIUMTEXT NOT NULL,
+    
+    FOREIGN KEY(id_exerc) REFERENCES exercicios(id_exerc)
+);
+
 CREATE TABLE check_list(
 	id INT,
     id_cont INT,
@@ -40,6 +59,15 @@ CREATE TABLE check_list(
     concluido BOOL NOT NULL,
     PRIMARY KEY(id, id_cont, id_disc)
 );
+
+						
+-- inserir exercicios -- 
+INSERT INTO exercicios(id_disc, exercicio, quest_certa) VALUES(1, "A molecula de DNA armazena informacao genomica que e transcrita e traduzida por mecanismos elegantes como os de transcrisao e traducao. Entretanto, entre distintos individuos biologicos construidos por mensagem contida no DNA, ha uma singularidade biologica que se repete, mas se diferencia pelo modo como esta e organizada. Essa descricao corresponde a(s)", 3);
+
+
+-- mostrar exercicios --
+SELECT * FROM exercicios;
+
 
 -- inserir as disciplina --
 INSERT INTO disciplina(nome_disc) VALUES('BIOLOGIA');
