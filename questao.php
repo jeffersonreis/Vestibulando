@@ -18,7 +18,7 @@
   $num_exerc = $_GET["num_exerc"];
 
   // Comando Exercicio
-  $comando_questao = "SELECT e.exercicio, id_alternativa, e.id_exerc, c.id_cont, alternativa 
+  $comando_questao = "SELECT c.nome_cont, e.exercicio, id_alternativa, e.id_exerc, c.id_cont, alternativa 
                           FROM alternativas a
                           INNER JOIN exercicios e ON e.id_exerc = a.id_exerc
                           INNER JOIN conteudo c ON e.id_cont = c.id_cont
@@ -29,6 +29,9 @@
 
   // Exercicio
   $questao_exerc =  $mostrar_questao["exercicio"];
+
+  // Conteudo
+  $conteudo = $mostrar_questao["nome_cont"];
 
   // Comando Alternativa
   $comando_questao = "SELECT alternativa 
@@ -99,8 +102,9 @@
     
 </ul>
       <div class="tres"></div>
-      <h3>BIOLOGIA - Exercícios: Ácidos nucléicos </h3>
-      
+      <?php
+        echo "<h3>BIOLOGIA - Exercícios: " . $conteudo . "</h3>";
+      ?>
       <div id="questao">
           <br>   
           

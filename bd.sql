@@ -92,14 +92,12 @@ SELECT * FROM alternativas;
 
 
 -- mostrar alternativa do determinado exercicio do determinado conteudo-- 
-SELECT e.exercicio, id_alternativa, e.id_exerc, c.id_cont, alternativa 
+SELECT c.nome_cont, e.exercicio, id_alternativa, e.id_exerc, c.id_cont, alternativa 
 	FROM alternativas a
 	INNER JOIN exercicios e ON e.id_exerc = a.id_exerc
     INNER JOIN conteudo c ON e.id_cont = c.id_cont
     
     WHERE e.id_disc = 1 AND c.id_cont = 1 AND e.num_exerc = 2;
-
-
 -- TESTE --
 
 SELECT DISTINCT e.quest_certa
@@ -108,6 +106,8 @@ SELECT DISTINCT e.quest_certa
     INNER JOIN conteudo c ON e.id_cont = c.id_cont
     
     WHERE e.id_disc = 1 AND c.id_cont = 1 AND e.num_exerc = 1;
+
+SELECT e.exercicio, id_alternativa, e.id_exerc, c.id_cont, alternativa FROM alternativas a INNER JOIN exercicios e ON e.id_exerc = a.id_exerc INNER JOIN conteudo c ON e.id_cont = c.id_cont WHERE e.id_disc = 1 AND c.id_cont = 2 AND e.num_exerc = 1; 
 
 -- FIM TESTE --
 
