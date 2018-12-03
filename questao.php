@@ -108,7 +108,7 @@
             <?php echo $questao_exerc ?>
           </p></b>
       
-          <?php 
+          <?php
             $link = "responder.php?id_disc=" . $id_disc . "&id_cont=" . $id_cont . "&num_exerc=" . $num_exerc;
           ?>
           <b> <div id="checkbox">
@@ -126,8 +126,15 @@
               ?>
               <br>        
              <button type="submit" id="responder" type="button"> RESPONDER </button>
-             <button id="botao" type="button" href="/proxima.html"> PRÓXIMA </button>
+
+            <?php             
+              $link = "proxima_quest.php?id_disc=" . $id_disc . "&id_cont=" . $id_cont . "&num_exerc=" . $num_exerc;
+
+             echo '<a id="botao" class="botao" href=' . $link . '> PRÓXIMA </a>'
+             ?>
             </form>
+
+
         </div>
           </b>  
           <br>
