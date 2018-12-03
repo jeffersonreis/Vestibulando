@@ -98,8 +98,7 @@ div.tres {
  }
 h3 {
     margin-top: -48%;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 30%;
     font-family: Aharoni, cursive;
     font-size: 40px;
     color: #cb6f0d;
@@ -113,6 +112,7 @@ h3 {
 input {
     margin: .4rem;
 }
+
 
 #checkbox {
     margin-left: 5%;
@@ -136,13 +136,25 @@ p{
 #botao
 {
     position: relative;
-    margin-left: 80%;
-    margin-top: 5%;
+    margin-left: 70%;
+    margin-top: 0%;
     height: 30px;
     background-color: #d4832c;
     font-family: Aharoni, cursive; 
     border:2px outset #9d5406;
 }
+
+#responder
+{
+    position: relative;
+    margin-left: 0%;
+    margin-top: 10%;
+    height: 30px;
+    background-color: #d4832c;
+    font-family: Aharoni, cursive; 
+    border:2px outset #9d5406;
+}
+
 
 h4 {
     margin-top: 3%;

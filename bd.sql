@@ -36,11 +36,14 @@ CREATE TABLE conteudo(
 
 CREATE TABLE exercicios (
 	id_exerc INT AUTO_INCREMENT PRIMARY KEY,
+    num_exerc INT,
     id_disc INT,
+    id_cont INT,
     exercicio MEDIUMTEXT NOT NULL, -- A QUESTÃO EM SI
     quest_certa INT, -- O ID DA ALTERNATIVA CORRETA
     
-    FOREIGN KEY (id_disc) REFERENCES disciplina(id_disc)
+    FOREIGN KEY (id_disc) REFERENCES disciplina(id_disc),
+    FOREIGN KEY (id_cont) REFERENCES conteudo(id_cont)
 );
 
 CREATE TABLE alternativas(
@@ -62,12 +65,51 @@ CREATE TABLE check_list(
 
 						
 -- inserir exercicios -- 
-INSERT INTO exercicios(id_disc, exercicio, quest_certa) VALUES(1, "A molecula de DNA armazena informacao genomica que e transcrita e traduzida por mecanismos elegantes como os de transcrisao e traducao. Entretanto, entre distintos individuos biologicos construidos por mensagem contida no DNA, ha uma singularidade biologica que se repete, mas se diferencia pelo modo como esta e organizada. Essa descricao corresponde a(s)", 3);
+	
+    -- ÁCIDOS NUCLEICOS --
+INSERT INTO exercicios(num_exerc, id_disc, id_cont, exercicio, quest_certa) VALUES(1, 1, 1, "A molecula de DNA armazena informacao genomica que e transcrita e traduzida por mecanismos elegantes como os de transcrisao e traducao. Entretanto, entre distintos individuos biologicos construidos por mensagem contida no DNA, ha uma singularidade biologica que se repete, mas se diferencia pelo modo como esta e organizada. Essa descricao corresponde a(s)", 3);
+INSERT INTO exercicios(num_exerc, id_disc, id_cont, exercicio, quest_certa) VALUES(2, 1, 1, "Sabemos que existem dois tipos de acidos nucleicos: o DNA e o RNA. A respeito dessas duas moleculas, marque a alternativa correta:", 4);
 
+
+	-- ALGAS --
+INSERT INTO exercicios(num_exerc, id_disc, id_cont, exercicio, quest_certa) VALUES(1, 1, 2,"As algas sao organismos encontrados tanto em agua doce como no ambiente marinho e, apesar de terem diversas utilidades para o homem, muitas vezes causam transtornos quando crescem em proporcoes indesejaveis. Esse processo, muitas vezes acompanhado de grande liberacao de toxina, recebe o nome de:",3);
+
+
+-- inserir alternativa no exercicio 1 --
+	-- conteudo ÁCIDOS NUCLEIOCOS 1 --
+INSERT INTO alternativas(id_exerc, alternativa) VALUES(1, "a) moleculas de RNAt."), (1, "b) moleculas de RNAt."), (1, "c) bases nitrogenadas"), (1, "d) molecula de RNAm.");
+INSERT INTO alternativas(id_exerc, alternativa) VALUES(2, "a) O RNA e encontrado apenas na regiao do nucleo e no citosol."), (2, "b) O DNA e encontrado apenas no interior do nucleo das celulas."), (2, "c) Tanto o DNA quanto o RNA possuem em sua composicao um monossacarideo chamado de ribose."), (2, "d) A base nitrogenada timina e exclusiva do DNA."), (2, "e) A base nitrogenada guanina e exclusiva do RNA.");
+
+
+	-- conteudo ALGAS 2 --
+INSERT INTO alternativas(id_exerc, alternativa) VALUES(3, "a) endossimbiose."), (3, "b) poluicao."), (3, "c) floracao"), (3, "d) calcificacao"), (3, "e) fotossintese");
 
 -- mostrar exercicios --
 SELECT * FROM exercicios;
 
+-- mostrar alternativas --
+SELECT * FROM alternativas;
+
+
+-- mostrar alternativa do determinado exercicio do determinado conteudo-- 
+SELECT e.exercicio, id_alternativa, e.id_exerc, c.id_cont, alternativa 
+	FROM alternativas a
+	INNER JOIN exercicios e ON e.id_exerc = a.id_exerc
+    INNER JOIN conteudo c ON e.id_cont = c.id_cont
+    
+    WHERE e.id_disc = 1 AND c.id_cont = 1 AND e.num_exerc = 2;
+
+
+-- TESTE --
+
+SELECT DISTINCT e.quest_certa
+	FROM alternativas a
+	INNER JOIN exercicios e ON e.id_exerc = a.id_exerc
+    INNER JOIN conteudo c ON e.id_cont = c.id_cont
+    
+    WHERE e.id_disc = 1 AND c.id_cont = 1 AND e.num_exerc = 1;
+
+-- FIM TESTE --
 
 -- inserir as disciplina --
 INSERT INTO disciplina(nome_disc) VALUES('BIOLOGIA');
@@ -105,11 +147,6 @@ INSERT INTO conteudo(id_disc, nome_cont) VALUES(2, 'Atomistica');
 INSERT INTO conteudo(id_disc, nome_cont) VALUES(2, 'Tabela periodica');
 INSERT INTO conteudo(id_disc, nome_cont) VALUES(2, 'Ligações Quimicas');
 INSERT INTO conteudo(id_disc, nome_cont) VALUES(2, 'Geometria Molecular');
-
-
-
-
-
 
 
 -- mostrar usuarios --
@@ -152,4 +189,4 @@ SELECT nome_cont as conteudo, nome_disc as disciplina, d.id_disc
 SET SQL_SAFE_UPDATES = 0;
 
 -- Exemplo alterar senha pelo email --
-UPDATE usuarios SET senha='444' WHERE email='jeffersonluis.reis@gmail.com';
+UPDATE usuarios SET senha='444' WHERE email='jeffersonluis.reis@gmail./;;om'
